@@ -14,6 +14,7 @@ int main(void)
 	short int c;
 	short int of1 = 1;
 	short int of2 = 2;
+	short int of3 = 2;
 
 	for (a = 48 ; a < 56 ; a++)
 	{
@@ -35,9 +36,11 @@ int main(void)
 					putchar(32);
 				}
 			}
+			of2++;
 		}
 		of1++;
-		of2++;
+		of3++;
+		of2 = of3;
 	}
 
 	return (0);
