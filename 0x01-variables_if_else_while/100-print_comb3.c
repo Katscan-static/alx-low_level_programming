@@ -9,9 +9,9 @@
 
 int main(void)
 {
-	char a = 48;
-	char b;
-	char offset = 1;
+	short int a = 48;
+	short int b;
+	short int offset = 1;
 
 	while (a <= 56)
 	{
