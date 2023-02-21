@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -10,9 +11,15 @@
 
 int print_last_digit(int n)
 {
-	if (n < 0)
+	n = (long int)n;
+
+	if (n < 0 && n != -2147483648)
 	{
 		n *= -1;
+	}
+	else if (n == -2147483648)
+	{
+		n = 48;
 	}
 
 	_putchar(n % 10 + '0');
