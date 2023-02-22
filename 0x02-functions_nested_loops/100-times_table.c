@@ -13,16 +13,16 @@ void print_vals(int m, int n);
 
 
 /**
- * times_table - prints times table from 0-9
- *
+ *print_times_table - prints times table from 0-9
+ *@t: the multiple values
  */
 
 void print_times_table(int t)
-{	
-	if(t <= 15 && t > 0)
+{
+	if (t <= 15 && t >= 0)
 	{
 		int n = 0;
-		int m = 0 ;
+		int m = 0;
 
 		for (m = 0; m <= t; m++)
 		{
