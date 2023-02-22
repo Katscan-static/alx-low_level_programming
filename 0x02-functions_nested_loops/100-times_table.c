@@ -46,6 +46,11 @@ void print_times_table(int t)
 			}
 		}
 	}
+	else if (t == 0)
+	{
+		_putchar('0');
+		_putchar('\n');
+	}
 }
 
 /**
