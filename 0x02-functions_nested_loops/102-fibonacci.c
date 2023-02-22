@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Fibinacci series till 
+ * main - Fibinacci series till
  *
  * Return: Always (0) success
  *
@@ -12,21 +12,29 @@ int main(void)
 	unsigned long int a = 1;
 	unsigned long int b = 2;
 	int i;
-	printf("1 ,2 ,");
 
-	for (i = 0; i < 48; i++)
+
+	for (i = 0; i < 50; i++)
 	{
-		if (i == 0 || i % 2 == 0)
+		if (i == 0)
+		{
+			printf("%lu, ", a);
+		}
+		else if (i == 1)
+		{
+			printf("%lu, ", b);
+		}
+		if (i >= 2 && (i  == 0 || i % 2 == 0))
 		{
 			a += b;
 			printf("%lu, ", a);
 		}
-		else if(i == 47)
+		else if (i == 49)
 		{
 			b += a;
-			printf("%lu\n",b);
+			printf("%lu\n", b);
 		}
-		else
+		else if (i > 2)
 		{
 			b += a;
 			printf("%lu, ", b);
