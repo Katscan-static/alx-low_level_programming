@@ -29,7 +29,7 @@ void print_to_98(int n)
 				m = n * -1;
 				print_v(m);
 			}
-			else if (n > 0)
+			else if (n >= 0)
 			{
 				print_v(n);
 			}
@@ -64,7 +64,7 @@ void print_v(int n)
 	}
 	else if (n / 10 > 0 && n != 98)
 	{
-		if (n > 100)
+		if (n >= 100)
 		{
 			_putchar(n / 100 + '0');
 			_putchar((n % 100) / 10 + '0');
