@@ -19,7 +19,7 @@ void print_vals(int m, int n);
 
 void print_times_table(int t)
 {
-	if (t <= 15 && t >= 0)
+	if (t <= 15 && t > 0)
 	{
 		int n = 0;
 		int m = 0;
