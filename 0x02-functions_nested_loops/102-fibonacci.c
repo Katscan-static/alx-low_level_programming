@@ -14,12 +14,17 @@ int main(void)
 	int i;
 	printf("1 ,2 ,");
 
-	for (i = 0; i < 50; i++)
+	for (i = 0; i < 48; i++)
 	{
 		if (i == 0 || i % 2 == 0)
 		{
 			a += b;
 			printf("%lu, ", a);
+		}
+		else if(i == 47)
+		{
+			b += a;
+			printf("%lu\n",b);
 		}
 		else
 		{
