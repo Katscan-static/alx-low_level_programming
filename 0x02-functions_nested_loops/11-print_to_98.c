@@ -29,7 +29,7 @@ void print_to_98(int n)
 				m = n * -1;
 				if (m == 98)
 				{
-				
+
 					_putchar(m / 10 + '0');
 					_putchar(m % 10 + '0');
 					_putchar(',');
