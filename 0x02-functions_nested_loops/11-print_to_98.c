@@ -30,12 +30,15 @@ void print_to_98(int n)
 				if (m == 98)
 				{
 				
-					_putchar(n / 10 + '0');
-					_putchar(n % 10 + '0');
+					_putchar(m / 10 + '0');
+					_putchar(m % 10 + '0');
 					_putchar(',');
 					_putchar(' ');
 				}
-				print_v(m);
+				else  if (m != 98)
+				{
+					print_v(m);
+				}
 			}
 			else if (n >= 0)
 			{
