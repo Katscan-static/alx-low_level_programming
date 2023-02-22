@@ -4,9 +4,10 @@
 /**
  * print_even - print even numbers in fibonacci series
  * @c: number to be printed
+ * Return: value if even
  */
 
-void print_even(unsigned long int c);
+int print_even(unsigned long int c);
 
 /**
  * main - Fibinacci series till
@@ -21,33 +22,34 @@ int main(void)
 	unsigned long int a = 1;
 	unsigned long int b = 2;
 	int i;
+	int test = 0;
 
 
 	for (i = 0; i < 50; i++)
 	{
 		if (i == 0)
 		{
-			print_even(a);
+
 		}
 		else if (i == 1)
 		{
-			print_even(b);
+
+			test += print_even(b);
 		}
 		if (i >= 2 &&   i % 2 == 0)
 		{
 			a += b;
-			print_even(a);
+			test += print_even(a);
 		}
 		else if (a > con ||  b > con)
 		{
-
-			putchar('\n');
+			printf("%d\n", test);
 			break;
 		}
 		else if (i > 2 && i % 2 != 0)
 		{
 			b += a;
-			print_even(b);
+			test += print_even(b);
 		}
 	}
 
@@ -58,22 +60,20 @@ int main(void)
 /**
  * print_even - print even numbers in fibonacci series
  * @c: number to be printed
+ * Return: value if even
  */
 
-void print_even(unsigned long int c)
+int print_even(unsigned long int c)
 {
-	if (c == 2)
+
+	if (c % 2 == 0 && c <= 4000000)
 	{
-		putchar(2 + '0');
-	}
-	if (c % 2 == 0 && c <= 4000000 && c > 2)
-	{
-		printf(", %lu", c);
+		return (c);
 
 	}
 	else
 	{
-
+		return (0);
 	}
 
 }
