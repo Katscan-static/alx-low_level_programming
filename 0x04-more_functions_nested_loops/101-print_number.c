@@ -58,7 +58,7 @@ void compute_num(int num)
 			_putchar(i + '0');
 			e = e % 1000000000;
 		}
-		for (i = 1; i <= 9; i++)
+		for (i = 1; i < 9; i++)
 		{
 			if (e / d == 0)
 			{
