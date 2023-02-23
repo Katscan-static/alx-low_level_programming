@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
  * compute_num - computes and prints number
  * @num: num to be computed
@@ -37,18 +37,30 @@ void print_number(int n)
 void compute_num(int num)
 {
 	int i;
-	int d = 10;
+	unsigned int e;
+	unsigned int d = 10;
 
-	if (num / d == 0)
+	if (num < 0)
 	{
-		_putchar(num + 48);
+		e = ~num + 1;
+	}
+	e = num;
+
+	if (e / d == 0)
+	{
+		_putchar(e + 48);
 	}
 	else
 	{
-
-		for (i = 1; i < 9; i++)
+		if (e > 100000000)
 		{
-			if (num / d == 0)
+			i = e / 1000000000;
+			_putchar(i + '0');
+			e = e % 1000000000;
+		}
+		for (i = 1; i <= 9; i++)
+		{
+			if (e / d == 0)
 			{
 				break;
 			}
@@ -57,11 +69,11 @@ void compute_num(int num)
 
 
 			d /= 10;
-			_putchar(num / d + '0');
+			_putchar(e / d + '0');
 
 			while (d != 1)
 			{
-				_putchar(((num % d) / (d / 10)) + '0');
+				_putchar(((e % d) / (d / 10)) + '0');
 				d /= 10;
 			}
 	}
