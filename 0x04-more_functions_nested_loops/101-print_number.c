@@ -46,13 +46,13 @@ void compute_num(int num)
 	}
 	e = num;
 
-	if (e / d == 0)
+	if (e / d == 0 && e < 10)
 	{
 		_putchar(e + 48);
 	}
 	else
 	{
-		if (e > 100000000)
+		if (e > 1000000000)
 		{
 			i = e / 1000000000;
 			_putchar(i + '0');
