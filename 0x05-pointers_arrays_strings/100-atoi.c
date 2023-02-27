@@ -20,7 +20,7 @@ int _atoi(char *s)
 			is_neg++;
 
 		}
-		if (*s == '+')
+		else if (*s == '+')
 		{
 			is_pos++;
 
