@@ -38,10 +38,12 @@ int _atoi(char *s)
 
 	if (is_neg > is_pos)
 	{
+	printf("%d  %d\n", is_pos, is_neg);
 	return (val = ~val + 1);
 	}
 	else
 	{
+	printf("%d  %d\n", is_pos, is_neg);
 		return (val);
 	}
 
