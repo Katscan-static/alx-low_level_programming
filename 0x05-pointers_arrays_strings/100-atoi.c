@@ -16,7 +16,7 @@ int _atoi(char *s)
 	
 		if (*s == '-')
 		{
-			is_neg = 1;
+			is_neg++;
 
 		}
 	
@@ -30,7 +30,7 @@ int _atoi(char *s)
 		}
 	} while(*s++);
 
-	if (is_neg > 0)
+	if (is_neg == 0)
 	{
 		return (val);
 	}
