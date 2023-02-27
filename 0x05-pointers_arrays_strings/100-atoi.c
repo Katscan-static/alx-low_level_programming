@@ -10,6 +10,7 @@ int _atoi(char *s)
 {
 	unsigned int val = 0;
 	int is_neg = 0;
+	int is_pos = 0;
 
 
 	do {
@@ -17,6 +18,11 @@ int _atoi(char *s)
 		if (*s == '-')
 		{
 			is_neg++;
+
+		}
+		if (*s == '+')
+		{
+			is_pos++;
 
 		}
 	
@@ -30,7 +36,7 @@ int _atoi(char *s)
 		}
 	} while(*s++);
 
-	if (is_neg == 1)
+	if (is_neg > is_pos)
 	{
 		return (val);
 	}
