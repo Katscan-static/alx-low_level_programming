@@ -28,7 +28,7 @@ int _atoi(char *s)
 	
 		else if (*s >= 48 && *s <= 57)
 		{
-			val = val * 10 - (*s - 48); 
+			val = val * 10 + (*s - 48); 
 		}
 		else if (val > 0)
 		{
@@ -38,11 +38,11 @@ int _atoi(char *s)
 
 	if (is_neg > is_pos)
 	{
-		return (val);
+	return (val = ~val + 1);
 	}
 	else
 	{
-	return (val = ~val + 1);
+		return (val);
 	}
 
 	
