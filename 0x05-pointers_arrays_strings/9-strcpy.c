@@ -20,7 +20,7 @@ char *_strcpy(char *dest, char *src)
 
 			if (src[i] == '\0')
 			{
-				null_term = 1;
+				dest[i] = src[i];
 			}
 			i++;
 		}
