@@ -36,14 +36,12 @@ int _atoi(char *s)
 		}
 	} while(*s++);
 
-	if (is_neg > is_pos)
+	if (is_neg > is_pos || (is_neg != is_pos && is_neg % 2 != 0))
 	{
-	printf("%d  %d\n", is_pos, is_neg);
 	return (val = ~val + 1);
 	}
 	else
 	{
-	printf("%d  %d\n", is_pos, is_neg);
 		return (val);
 	}
 
