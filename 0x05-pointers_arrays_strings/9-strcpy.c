@@ -14,7 +14,7 @@ char *_strcpy(char *dest, char *src)
 	char null_term = 0;
 	while (src[i]){
 		
-		if(src[i] && !null_term)
+		if(src[i] && null_term == 0)
 		{
 			dest[i] = src[i];
 
