@@ -11,23 +11,18 @@
 char *_strcpy(char *dest, char *src)
 {
 	int i = 0;
-	char null_term = 0;
-	while (src[i]){
-		
-		if(src[i] && null_term == 0)
+
+	while (src[i])
+	{
+
+		if (src[i])
 		{
 			dest[i] = src[i];
-
-			if (src[i] == '\0')
-			{
-				dest[i] = src[i];
-				printf("null fournd");
-			}
 			i++;
 		}
 	}
 
 	dest[i] = '\0';
 
-	return dest;
+	return (dest);
 }
