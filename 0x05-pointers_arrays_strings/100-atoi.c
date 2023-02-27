@@ -30,7 +30,7 @@ int _atoi(char *s)
 		}
 	} while(*s++);
 
-	if (is_neg == 0)
+	if (is_neg == 1)
 	{
 		return (val);
 	}
