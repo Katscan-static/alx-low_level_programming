@@ -2,14 +2,14 @@
 #include "main.h"
 
 /**
- * _puts - prints a string
+ * puts2 - prints a string
  * @s: the string to be printed
  */
 
 void puts2(char *s)
 {
 	int i = 1;
-	
+
 	if (*s)
 	{
 		_putchar(*s);
