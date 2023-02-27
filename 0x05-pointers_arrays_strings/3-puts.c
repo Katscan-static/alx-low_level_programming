@@ -8,9 +8,9 @@
 
 void _puts(char *s)
 {
-	do
-	{	if(*s)
-		{	
+	do {
+		if (*s)
+		{
 		_putchar(*s);
 		}
 	} while (*s++);
