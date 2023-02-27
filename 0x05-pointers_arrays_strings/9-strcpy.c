@@ -21,10 +21,13 @@ char *_strcpy(char *dest, char *src)
 			if (src[i] == '\0')
 			{
 				dest[i] = src[i];
+				printf("null fournd");
 			}
 			i++;
 		}
 	}
+
+	dest[i] = '\0';
 
 	return dest;
 }
