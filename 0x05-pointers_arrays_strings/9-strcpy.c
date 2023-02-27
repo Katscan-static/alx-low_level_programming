@@ -10,17 +10,11 @@
 
 char *_strcpy(char *dest, char *src)
 {
-	int count = 0, i = 0;
-	while (*src++)
-		count++;
-	printf("%d\n", count);
-	
-	src -= (count + 1);
-	for (i = 0; i < count; ++i)
-	{
+	int i = 0;
+	while (src[i]){
 
 		dest[i] = src[i];
-	}
+		i++;}
 
 	return dest;
 }
