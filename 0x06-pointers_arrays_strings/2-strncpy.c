@@ -29,7 +29,7 @@ char *_strncpy(char *dest, char *src, int n)
 			*dest++ = *src++;
 			count++;
 		}
-		else if (!*src)
+		else if (!*src && i != 0)
 		{
 			*dest = '\0';
 		}
