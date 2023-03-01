@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * _strncat - concatinate two strings
+ * _strncpy - concatinate two strings
  * @dest: the string to be concatinated to
  * @src: the string to concatinate
  * @n: number of bytes to be printed
