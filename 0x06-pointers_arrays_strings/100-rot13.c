@@ -1,3 +1,11 @@
+#include "main.h"
+
+/**
+ * rot13 - rot13 encoder
+ * @str: string to be encoding
+ * Return: pointer to a string
+ */
+
 char *rot13(char *str)
 {
 	int cnt1 = 0;
