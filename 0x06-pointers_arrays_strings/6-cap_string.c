@@ -20,7 +20,9 @@ char *cap_string(char *s)
                     	s[count - 1] == '"' || s[count - 1] == '\t' ||
                     	s[count - 1] == '\n' || s[count - 1] == '(' ||
                     	s[count - 1] == ')' || s[count - 1] == ';' ||
-			s[count - 1] == '{' || s[count - 1] == '}')
+			s[count - 1] == '{' || s[count - 1] == '}' ||
+			s[count - 1] == '!' || s[count - 1] == ',' ||
+			s[count - 1] == '?')
 		{
         	        s[count] -= 32;
 		}
