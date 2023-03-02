@@ -9,19 +9,17 @@
 char *string_toupper(char *s)
 {
 
-	char *p = s;
-
+	int i = 0;
 	while (*s)
 	{
-		if (*s >= 'a' && *s <= 'Z')
-		{
+		if (*s >= 'a' && *s <= 'z')
 			*s -= 32;
-		}
-		
-		s += 1;;
+
+		s += 1;
+		i++;
 	}
-
-
-	return (p);
+	
+	s -= i;
+	return (s);
 
 }
