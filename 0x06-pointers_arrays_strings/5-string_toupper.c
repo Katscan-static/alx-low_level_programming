@@ -16,8 +16,11 @@ char *string_toupper(char *s)
 		{
 			*s += 32;
 		}
-		s += 1;
+		
+		s += 1;;
 	}
+
+	*s = '\0';
 
 	return (p);
 
