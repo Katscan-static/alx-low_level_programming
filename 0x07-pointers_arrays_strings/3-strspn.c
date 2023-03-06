@@ -39,5 +39,5 @@ unsigned int _strspn(char *s, char *accept)
 		return (count);
 		}
 	}
-	return (0);
+	return (count);
 }
