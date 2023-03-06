@@ -15,13 +15,8 @@ char *_strchr(char *s, char c)
 		{
 			return (s);
 		}
-		else if (!c)
-		{
-			break;
-		}
-
 		s += 1;
 	}
 
-	return (0);
+	return (s);
 }
