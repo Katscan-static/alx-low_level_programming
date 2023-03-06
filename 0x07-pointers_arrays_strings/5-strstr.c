@@ -23,15 +23,16 @@ char *_strstr(char *haystack, char *needle)
 			else if (*haystack && *haystack != needle[i])
 			{
 				i = 0;
-				haystack++;
+				break;
 			}
 		}
+		if (i > 0)
+		{
+			return (haystack -= i);
+		}
+		haystack++;
 	}
 
-	if (i > 0)
-	{
-		return (haystack -= i);
-	}
 
 	return (0);
 }
