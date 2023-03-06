@@ -19,7 +19,7 @@ unsigned int _strspn(char *s, char *accept)
 
 		while (accept[i])
 		{
-			if (*s == accept[i])
+			if (*s == accept[i] && *s != 32)
 			{
 				s += 1;
 				valid++;
