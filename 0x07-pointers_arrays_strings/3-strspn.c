@@ -22,8 +22,10 @@ unsigned int _strspn(char *s, char *accept)
 			if (*s == accept[i] && *s != 32)
 			{
 				s += 1;
-				valid++;
-
+				if(*s != ' ')
+				{
+					valid++;
+				}
 			}
 			i++;
 		}
