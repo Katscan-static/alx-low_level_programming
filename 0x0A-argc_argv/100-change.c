@@ -61,14 +61,14 @@ int main(int argc, char **argv)
 	}
 
 	c = atoi(argv[1]);
-
 	if (c < 0 || !str_num(argv[1]))
 	{
 		printf("0\n");
-		return (0);
 	}
-
-	printf("%d\n", check_cents(c));
+	else
+	{
+		printf("%d\n", check_cents(c));
+	}
 	return (0);
 
 }
