@@ -17,7 +17,6 @@ int str_num(char *s)
 
 	return (1 * str_num(s + 1));
 }
-
 /**
  * check_cents - check cents to give back
  * @cents: value to convert to cents
@@ -26,21 +25,38 @@ int str_num(char *s)
 
 int check_cents(int cents)
 {
-	if (!cents)
-		return (0);
+	int i = 0;
+	int j = cents;
 
-	if ((cents - 25) >= 0)
-		return (1 + check_cents(cents - 25));
-	if ((cents - 10) >= 0)
-		return (1 + check_cents(cents - 10));
-	if ((cents - 5) >= 0)
-		return (1 + check_cents(cents - 5));
-	if ((cents - 2) >= 0)
-		return (1 + check_cents(cents - 2));
-	if ((cents - 1) >= 0)
-		return (1 + check_cents(cents - 1));
-
-	return (0);
+	while (j > 0)
+	{
+		if ((j - 25) >= 0)
+		{
+			j -= 25;
+			i += 1;
+		}
+		else if ((j - 10) >= 0)
+		{
+			j -= 10;
+			i += 1;
+		}
+		else if ((j - 5) >= 0)
+		{
+			j -= 5;
+			i += 1;
+		}
+		else if ((j - 2) >= 0)
+		{
+			j -= 2;
+			i += 1;
+		}
+		else if ((j - 1) >= 0)
+		{
+			j -= 1;
+			i += 1;
+		}
+	}
+	return (i);
 }
 
 /**
