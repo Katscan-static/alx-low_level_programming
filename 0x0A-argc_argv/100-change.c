@@ -3,19 +3,19 @@
 
 /**
  * str_num - check if string is positive number
- * @s - string argument to be tested
- * Retun 1 if number 0 if not
+ * @s: string argument to be tested
+ * Return: 1 if number 0 if not
  */
 
 int str_num(char *s)
 {
-	if(!*s)
-		return 1;
+	if (!*s)
+		return (1);
 
 	if (*s < '0' || *s > '9')
-		return 0;
+		return (0);
 
-        return (1* str_num(s + 1));
+	return (1 * str_num(s + 1));
 }
 
 /**
