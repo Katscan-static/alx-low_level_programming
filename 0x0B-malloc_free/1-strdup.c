@@ -14,6 +14,9 @@ char *_strdup(char *str)
 	int count = 0;
 	int i;
 	
+	if (str == NULL)
+		return (NULL);
+
 	while (str[count])
 	{
 		count++;
@@ -26,7 +29,7 @@ char *_strdup(char *str)
 		p[count] = '\0';
 		return (p);
 	}
-	if (count)
+	else if (count)
 	{
 		for (i = 0; i < count; i++)
 		{
