@@ -18,8 +18,7 @@ char **strtow(char *s)
 		return (NULL);
 
 	while (s[i])
-	{	if(s[0] != '')
-			wc++;
+
 		if (s[i] != ' ' && s[i - 1] == ' ')
 			wc++;
 		i++;
