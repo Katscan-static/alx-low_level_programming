@@ -93,6 +93,8 @@ char **split_str(int *n, char **p, char *s, int wc)
 		}
 	}
 	free(n);
+	if (!wc)
+		return (NULL);
 	return (p);
 }
 
