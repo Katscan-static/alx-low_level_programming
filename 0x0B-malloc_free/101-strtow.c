@@ -19,7 +19,7 @@ char **strtow(char *s)
 
 	while (s[i])
 	{
-		if (s[i] != ' ' && s[i - 1] == ' ')
+		if ((s[i] != ' ' && s[i - 1] == ' ') || (i == 0 && s[i] != ' '))
 			wc++;
 		i++;
 	}
@@ -34,7 +34,7 @@ char **strtow(char *s)
 		cnt = 0;
 		while (s[j] == ' ')
 			j++;
-		if (s[j] != ' ' && s[j - 1] == ' ')
+		if ((s[j] != ' ' && s[j - 1] == ' ') || (j == 0 && s[j] != ' '))
 		{
 			while (s[j] != ' ')
 			{
@@ -81,9 +81,9 @@ char **split_str(int *n, char **p, char *s, int wc)
 		cnt = 0;
 		while (s[j] == ' ')
 			j++;
-		if (s[j] != ' ' && s[j - 1] == ' ')
+		if ((s[j] != ' ' && s[j - 1] == ' ') || (j == 0 && s[j] != ' '))
 		{
-			while (s[j] != ' ' && s[j])
+			while ((s[j] != ' ' && s[j]) || (j == 0 && s[j] != ' '))
 			{
 				p[i][cnt] = s[j];
 				cnt++;
