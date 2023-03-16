@@ -17,17 +17,16 @@
 char *con_str(char *s1, char *s2, char *p, int c1, int c2);
 
 /**
- * string_nconcat - concatenate s1 with n bytes of s2
+ * str_concat - concatenate two strings
  * @s1: first string
  * @s2: second string
- * @b: number of bytes
  * Return: pointer to string, or NULL if fail
  */
 
 char *string_nconcat(char *s1, char *s2, unsigned int b)
 {
 	char *p;
-	unsigned int c1 = 0, c2 = 0;
+	int c1 = 0, c2 = 0;
 	char n[1] = {'\0'};
 
 	if (!s1)
@@ -77,7 +76,12 @@ char *con_str(char *s1, char *s2, char *p, int c1, int c2)
 		p[c1 + j] = s2[j];
 		j++;
 	}
-	p[c1 + c2] = '\0';
+
+	if (!s1[0] && !s2[0])
+		p[c1 + c2 - 1] = '\0';
+	else
+		p[c1 + c2] = '\0';
 
 	return (p);
 }
+
