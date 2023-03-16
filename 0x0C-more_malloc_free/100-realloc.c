@@ -12,7 +12,7 @@
 
 char *reall_compute(char *ptr, unsigned int old_size, unsigned int new_size)
 {
-	unsigned int i = 0;
+	unsigned int i = 0, m_hold = new_size;
 	char *p;
 
 	if (!new_size && ptr)
@@ -25,9 +25,12 @@ char *reall_compute(char *ptr, unsigned int old_size, unsigned int new_size)
 		p = malloc(new_size);
 		if (!p)
 			return (NULL);
-		free(ptr);
 		return (p);
 	}
+
+	if (old_size < new_size)
+		m_hold = old_size;
+
 
 	p = malloc(new_size);
 
@@ -36,7 +39,7 @@ char *reall_compute(char *ptr, unsigned int old_size, unsigned int new_size)
 	if (old_size == new_size)
 		return (ptr);
 
-	for (i = 0; i < old_size; i++)
+	for (i = 0; i < m_hold; i++)
 		p[i] = ptr[i];
 	free(ptr);
 	return (p);
