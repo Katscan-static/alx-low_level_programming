@@ -29,7 +29,7 @@ char *reall_compute(char *ptr, unsigned int old_size, unsigned int new_size)
 		return (ptr);
 	}
 
-	p = malloc(old_size);
+	p = malloc(new_size);
 
 	if (!p)
 		return (NULL);
@@ -41,16 +41,7 @@ char *reall_compute(char *ptr, unsigned int old_size, unsigned int new_size)
 	for (i = 0; i < m_hold; i++)
 		p[i] = ptr[i];
 	free(ptr);
-	ptr = malloc(new_size);
-	if (!ptr)
-	{
-		free(p);
-		return (NULL);
-	}
-	for (i = 0; i < m_hold; i++)
-		ptr[i] = p[i];
-	free(p);
-	return (ptr);
+	return (p);
 }
 
 /**
