@@ -21,7 +21,7 @@ char *reall_compute(char *ptr, unsigned int old_size, unsigned int new_size)
 		free(ptr);
 		return (NULL);
 	}
-	if (!ptr)
+	if (!ptr && new_size)
 	{
 		ptr = malloc(new_size);
 		if (!ptr)
