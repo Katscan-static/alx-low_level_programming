@@ -20,6 +20,8 @@ char *reall_compute(char *ptr, unsigned int old_size, unsigned int new_size)
 		free(ptr);
 		return (NULL);
 	}
+	if (old_size == new_size)
+		return (ptr);
 	if (!ptr)
 	{
 		p = malloc(new_size);
@@ -36,8 +38,6 @@ char *reall_compute(char *ptr, unsigned int old_size, unsigned int new_size)
 
 	if (!p)
 		return (NULL);
-	if (old_size == new_size)
-		return (ptr);
 
 	for (i = 0; i < m_hold; i++)
 		p[i] = ptr[i];
