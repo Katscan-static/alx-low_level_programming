@@ -23,10 +23,10 @@ char *reall_compute(char *ptr, unsigned int old_size, unsigned int new_size)
 	}
 	if (!ptr)
 	{
-		ptr = malloc(new_size);
-		if (!ptr)
+		p = malloc(new_size);
+		if (!p)
 			return (NULL);
-		return (ptr);
+		return (p);
 	}
 
 	p = malloc(new_size);
