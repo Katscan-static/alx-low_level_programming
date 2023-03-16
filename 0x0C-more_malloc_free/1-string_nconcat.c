@@ -17,9 +17,10 @@
 char *con_str(char *s1, char *s2, char *p, int c1, int c2);
 
 /**
- * str_concat - concatenate two strings
+ * string_nconcat - concatenate two strings
  * @s1: first string
  * @s2: second string
+ * @b: number of characters
  * Return: pointer to string, or NULL if fail
  */
 
