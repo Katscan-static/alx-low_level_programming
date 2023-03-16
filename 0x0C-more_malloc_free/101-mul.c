@@ -30,6 +30,9 @@ int check_num(char *s)
 
 int main(int ac, char **av)
 {
+	char *s;
+	int cnt = 0;
+
 	if (ac != 3)
 	{
 		printf("Error\n");
@@ -38,7 +41,16 @@ int main(int ac, char **av)
 	else
 	{
 		if (check_num(av[1]) && check_num(av[2]))
-			printf("%d\n", (atoi(av[1]) * atoi(av2)));
+		{
+			cnt =  20;
+			s = malloc(sizeof(char) * cnt);
+
+			if (s)
+			{
+				free(s);
+				return (0);
+			}
+		}
 	}
 
 	return (0);
