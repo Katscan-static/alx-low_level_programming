@@ -13,7 +13,6 @@
 char *reall_compute(char *ptr, unsigned int old_size, unsigned int new_size)
 {
 	unsigned int i = 0;
-	unsigned int m_hold = new_size;
 	char *p;
 
 	if (!new_size && ptr)
@@ -35,10 +34,8 @@ char *reall_compute(char *ptr, unsigned int old_size, unsigned int new_size)
 		return (NULL);
 	if (old_size == new_size)
 		return (ptr);
-	if (new_size > old_size)
-		m_hold = old_size;
 
-	for (i = 0; i < m_hold; i++)
+	for (i = 0; i < old_size; i++)
 		p[i] = ptr[i];
 	free(ptr);
 	return (p);
