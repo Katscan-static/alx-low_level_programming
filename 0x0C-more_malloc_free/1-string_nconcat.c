@@ -77,7 +77,10 @@ char *con_str(char *s1, char *s2, char *p, int c1, int c2)
 		p[c1 + j] = s2[j];
 		j++;
 	}
-	p[c1 + c2] = '\0';
+	if (!s1[0] && !s2[0])
+		p[c1 + c2 - 1] = '\0';
+	else
+		p[c1 + c2] = '\0';	
 
 	return (p);
 }
