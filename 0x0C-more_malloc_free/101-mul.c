@@ -34,7 +34,6 @@ void print_num(char *s)
  * @p: pinter to be written to
  * @l: the value of l
  * @rem: the remainder
- * retun
  */
 
 void write_rem(char *p, int l, int rem)
@@ -128,14 +127,7 @@ int main(int ac, char **av)
 		printf("Error\n");
 		exit(98);
 	}
-	else
-	{
-		if (check_num(av[1]) && check_num(av[2]))
-		{
-
-			mult(av[1], av[2]);
-		}
-	}
+	mult(av[1], av[2]);
 
 	return (0);
 }
