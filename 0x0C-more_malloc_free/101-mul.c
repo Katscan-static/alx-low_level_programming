@@ -15,7 +15,8 @@ void print_num(char *s)
 	while (s[i] == '0')
 	{
 		i++;
-		if(!s[i]){
+		if (!s[i])
+		{
 			_putchar('0');
 			_putchar('\n');
 			return;
