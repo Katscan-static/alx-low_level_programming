@@ -92,6 +92,7 @@ void mult(char *s1, char *s2)
 			write_rem(p, tmp, rem);
 	}
 	print_num(p);
+	free(p);
 }
 
 /**
