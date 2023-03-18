@@ -13,7 +13,14 @@ void print_num(char *s)
 	int i = 0;
 
 	while (s[i] == '0')
+	{
 		i++;
+		if(!s[i]){
+			_putchar('0');
+			_putchar('\n');
+			return;
+		}
+	}
 
 	for (; s[i]; i++)
 		_putchar(s[i]);
