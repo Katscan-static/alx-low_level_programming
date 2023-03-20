@@ -5,7 +5,7 @@
  * struct dog - stucture for dog data
  * @name: name
  * @age: age
- * @owner
+ * @owner: owner
  *
  * Description: structure saves dog name, age and owner
  */
