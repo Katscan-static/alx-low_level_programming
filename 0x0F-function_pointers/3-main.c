@@ -1,6 +1,7 @@
 #include "3-calc.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 /**
  * main - entry point
@@ -20,8 +21,8 @@ int main(int ac, char **av)
 		exit(98);
 	}
 
-	if (av[2][0] != '+' && av[2][0] != '-' && av[2][0] != '*'
-		&& av[2][0] != '/' && av[2][0] != '%')
+	if ((av[2][0] != '+' && av[2][0] != '-' && av[2][0] != '*'
+		&& av[2][0] != '/' && av[2][0] != '%') || strlen(av[2]) != 1)
 	{
 		printf("Error\n");
 		exit(99);
