@@ -1,1 +1,1 @@
-Preprocessor
+Variadic function
