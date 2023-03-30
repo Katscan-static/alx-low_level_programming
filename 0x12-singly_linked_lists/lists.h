@@ -21,5 +21,6 @@ typedef struct list_s
 #ifndef HEADER_H
 #define HEADER_H
 
+size_t list_len(const list_t *h);
 size_t print_list(list_t *node);
 #endif
