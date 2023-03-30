@@ -21,7 +21,4 @@ typedef struct list_s
 #define HEADER_H
 
 int print_list(list_t *node);
-void _putchar(char c);
-void print_str(char *);
-void print_num(unsigned int);
 #endif
