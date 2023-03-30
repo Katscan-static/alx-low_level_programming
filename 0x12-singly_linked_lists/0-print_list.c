@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stddef.h>
 #include <unistd.h>
 
 
@@ -51,7 +52,7 @@ void print_str(char *s)
  * Return: number of nodes printed
  */
 
-int print_list(list_t *node)
+size_t print_list(list_t *node)
 {
 	int i = 0;
 

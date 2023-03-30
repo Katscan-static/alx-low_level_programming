@@ -1,5 +1,6 @@
 #ifndef STRUCT_H
 #define STRUCT_H
+#include <stddef.h>
 /**
  * struct list_s - singly linked list
  * @str: string - (malloc'ed string)
@@ -20,5 +21,5 @@ typedef struct list_s
 #ifndef HEADER_H
 #define HEADER_H
 
-int print_list(list_t *node);
+size_t print_list(list_t *node);
 #endif
