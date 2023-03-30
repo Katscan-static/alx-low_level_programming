@@ -11,7 +11,7 @@
  */
 size_t print_list(list_t *node)
 {
-	size_t i = 0;
+	long unsigned int i = 0;
 
 	for (; (node); i++)
 	{
