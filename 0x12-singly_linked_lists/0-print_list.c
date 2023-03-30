@@ -54,7 +54,7 @@ void print_str(char *s)
 
 size_t print_list(list_t *node)
 {
-	int i = 0;
+	size_t i = 0;
 
 	for (; (node); i++)
 	{
