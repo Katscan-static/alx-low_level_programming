@@ -11,7 +11,7 @@
 
 void _putchar(char c)
 {
-	write(1,&c,1);
+	write(1, &c, 1);
 
 }
 
@@ -38,7 +38,7 @@ void print_str(char *s)
 {
 	if (!s)
 		s = "(nil)";
-	while(*s)
+	while (*s)
 	{
 		_putchar(*s);
 		s += 1;
