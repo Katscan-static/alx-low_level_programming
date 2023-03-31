@@ -23,4 +23,8 @@ void free_list(list_t *head)
 			current_node = next_node;
 		}
 	}
+	else
+	{
+		free(head);
+	}
 }
