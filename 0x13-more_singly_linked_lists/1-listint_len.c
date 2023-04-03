@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 /**
- * print_listint - print number of elements
+ * listint_len - print number of elements
  * @h: header of a linked list
  *
  * Return: 0 if null, count
