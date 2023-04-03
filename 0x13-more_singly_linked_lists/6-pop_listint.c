@@ -18,7 +18,11 @@ int pop_listint(listint_t **head)
 
 	old_head = *head;
 	if (!old_head->next)
-		*head = NULL;
+	{
+		n_hold = old_head->n;
+		(*head) = NULL;
+		return (n_hold);
+	}
 	else
 		hold = old_head->next;
 
