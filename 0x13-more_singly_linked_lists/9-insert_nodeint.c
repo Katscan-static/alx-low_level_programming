@@ -52,7 +52,6 @@ listint_t *nde(unsigned int i, listint_t **c, listint_t **n, listint_t **h)
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	unsigned int cnt = 0;
 
 	listint_t *hold;
 	listint_t *current;
