@@ -18,7 +18,6 @@ listint_t *nde(unsigned int i, listint_t **c, listint_t **n, listint_t **h)
 		*n = (*c)->next;
 		if (!*n && (ct < (i - 1)))
 		{
-			free(*h);
 			return (NULL);
 		}
 
