@@ -3,20 +3,24 @@
 
 /**
  * nde - add node
- * @ct: count
  * @i: index
  * @c: current
  * @n: next
  * @h: hold
  * Return: pointer
  */
-listint_t *nde(int ct, int i, listint_t **c, listint_t **n, listint_t **h)
+listint_t *nde(unsigned int i, listint_t **c, listint_t **n, listint_t **h)
 {
+	unsigned int ct = 0;
+
 	for (; ct <= i; ct++)
 	{
 		*n = (*c)->next;
 		if (!*n && (ct < (i - 1)))
+		{
+			free(*h);
 			return (NULL);
+		}
 
 		if (ct == (i - 1))
 		{
@@ -54,7 +58,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	listint_t *current;
 	listint_t *next;
 
-	if (!*head || !head)
+	if ((!*head && idx > 0) || !head)
 		return (NULL);
 
 	hold = malloc(sizeof(listint_t));
@@ -72,7 +76,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (*head);
 	}
 
-	if (nde((int)cnt, (int)idx, &current, &next, &hold))
+	if (nde(idx, &current, &next, &hold))
 		return (hold);
 
 	free(hold);
