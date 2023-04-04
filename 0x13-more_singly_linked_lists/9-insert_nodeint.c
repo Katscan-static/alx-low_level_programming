@@ -15,7 +15,7 @@ listint_t *nde(int ct, int i, listint_t **c, listint_t **n, listint_t **h)
 	for (; ct <= i; ct++)
 	{
 		*n = (*c)->next;
-		if (!*n && (ct < i))
+		if (!*n && (ct < (i - 1)))
 			return (NULL);
 
 		if (ct == (i - 1))
