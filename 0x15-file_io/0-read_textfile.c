@@ -1,4 +1,5 @@
 #include "main.h"
+#include <fcntl.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <stddef.h>
@@ -15,7 +16,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	FILE *fp;
 	size_t cnt = 0;
-	char c;
+	int c;
 
 	if (!filename)
 		return (0);
@@ -27,13 +28,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	while (((c = fgetc(fp)) != EOF) && (cnt != letters))
 	{
-		if (write(1, &c, 1) == 1)
+		if (write(STDOUT_FILENO, &c, 1) == 1)
 			;
 		else
 			return (0);
 
 		cnt++;
 	}
+
 
 	return ((ssize_t)(cnt));
 
