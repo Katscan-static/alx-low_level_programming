@@ -58,7 +58,6 @@ int main(int ac, char **av)
 	while (nread == 1024)
 	{
 		nread = fread(buf, 1, 1024, f_from);
-		printf("%ld", nread);
 		if (fwrite(buf, 1, nread, f_to) != nread)
 		{
 			fprintf(stderr, "Error: Can't write to  %s", av[2]);
