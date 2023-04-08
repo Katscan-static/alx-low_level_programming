@@ -40,12 +40,12 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		fprintf(stderr, "Usage: cp file_from file_to\n");
+		fprintf(stderr, "Usage: cp %s %s\n", av[1], av[2]);
 		exit(97);
 	}
 	if (access(av[1], F_OK) == -1 || access(av[1], R_OK) == -1)
 	{
-		fprintf(stderr, "Error: Can't read from file\n");
+		fprintf(stderr, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
 	f_from = fopen(av[1], "r");
