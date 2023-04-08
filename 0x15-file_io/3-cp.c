@@ -57,7 +57,7 @@ int main(int ac, char **av)
 		exit(98);
 	}
 	f_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, st.st_mode & 0664);
-	if (f_from < 0 || f_to < 0)
+	if (f_to < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to  %s", av[2]);
 		exit(99);
