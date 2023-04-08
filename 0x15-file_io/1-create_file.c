@@ -1,4 +1,5 @@
 #include "main.h"
+#include <unistd.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <sys/stat.h>
@@ -14,10 +15,13 @@ int create_file(const char *filename, char *text_content)
 {
 	FILE *fp;
 	size_t c = 0;
+	int f_exist;
 	mode_t mode = S_IRUSR | S_IWUSR;
 
 	if (!filename)
 		return (-1);
+
+	f_exist = access(filename, F_OK);
 	fp = fopen(filename, "w");
 
 	if (!fp)
@@ -26,8 +30,11 @@ int create_file(const char *filename, char *text_content)
 	if (!text_content)
 	{
 		fclose(fp);
-		if (chmod(filename, mode) != 0)
-			return (-1);
+		if (!f_exist)
+		{
+			if (chmod(filename, mode) != 0)
+				return (-1);
+		}
 	}
 
 	while (text_content[c])
@@ -37,10 +44,11 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 
 	fclose(fp);
-	if (chmod(filename, mode) != 0)
-		return (-1);
+	if (!f_exist)
+	{
+		if (chmod(filename, mode) != 0)
+			return (-1);
+	}
 
 	return (1);
-
-
 }
