@@ -30,7 +30,7 @@ int create_file(const char *filename, char *text_content)
 	if (!text_content)
 	{
 		fclose(fp);
-		if (!f_exist)
+		if (f_exist == -1)
 		{
 			if (chmod(filename, mode) != 0)
 				return (-1);
@@ -44,7 +44,7 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 
 	fclose(fp);
-	if (!f_exist)
+	if (f_exist == -1)
 	{
 		if (chmod(filename, mode) != 0)
 			return (-1);
