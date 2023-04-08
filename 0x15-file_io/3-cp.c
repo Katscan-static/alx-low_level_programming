@@ -1,25 +1,26 @@
 #include <stdio.h>
-#include <stddef.h>
+#include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <sys/types.h>
 
 /**
  * close_files - closes files and handles error
  * @from: file copied from
  * @to: file to copy to
  */
-void close_files(FILE *from, FILE *to)
+void close_files(int from, int to)
 {
-	if (fclose(from) != 0)
+	if (close(from) != 0)
 	{
-		fprintf(stderr, "Error: Can't close fd %d", fileno(from));
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", from);
 		exit(100);
 	}
-	if (fclose(to) != 0)
+	if (close(to) != 0)
 	{
-		fprintf(stderr, "Error: Can't close fd %d", fileno(to));
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", to);
 		exit(100);
 	}
 }
@@ -34,38 +35,43 @@ void close_files(FILE *from, FILE *to)
 int main(int ac, char **av)
 {
 	char buf[1024];
-	size_t nread = 1024;
-	FILE *f_from, *f_to;
-	mode_t mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
+	int nread = 1024;
+	int f_from, f_to;
+	struct stat st;
 
 	if (ac != 3)
 	{
-		fprintf(stderr, "Usage: cp %s %s\n", av[1], av[2]);
+		dprintf(STDERR_FILENO, "Usage: cp %s %s\n", av[1], av[2]);
 		exit(97);
 	}
 	if (access(av[1], F_OK) == -1 || access(av[1], R_OK) == -1)
 	{
-		fprintf(stderr, "Error: Can't read from file %s\n", av[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	f_from = fopen(av[1], "r");
-	f_to = fopen(av[2], "w");
-	if (!f_from || !f_to)
+	f_from = open(av[1], O_RDONLY);
+	if (fstat(f_from, &st) < 0)
 	{
-		fprintf(stderr, "Error: Can't write to  %s\n", av[2]);
+		close(f_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+		exit(98);
+	}
+	f_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, st.st_mode & 0664);
+	if (f_from < 0 || f_to < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to  %s", av[2]);
 		exit(99);
 	}
 	while (nread == 1024)
 	{
-		nread = fread(buf, 1, 1024, f_from);
-		if (fwrite(buf, 1, nread, f_to) != nread)
+		nread = read(f_from, buf, 1024);
+		if (write(f_to, buf, nread) != nread)
 		{
-			fprintf(stderr, "Error: Can't write to  %s\n", av[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to  %s", av[2]);
 			exit(99);
 		}
 		memset(buf, 0, 1024);
 	}
-	chmod(av[2], mode);
 	close_files(f_from, f_to);
 	return (0);
 }
