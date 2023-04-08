@@ -36,7 +36,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		cnt++;
 	}
 
-
+	fclose(fp);
 	return ((ssize_t)(cnt));
 
 }
