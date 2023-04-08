@@ -10,9 +10,22 @@
  * close_files - closes files and handles error
  * @from: file copied from
  * @to: file to copy to
+ * @nread: characters read
+ * @buf: buffer
+ * @av: argument variable
  */
-void close_files(int from, int to)
+void close_files(int from, int to, int nread, char *buf, char **av)
 {
+	while (nread == 1024)
+	{
+		nread = read(from, buf, 1024);
+		if (write(to, buf, nread) != nread)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to  %s", av[2]);
+			exit(99);
+		}
+		memset(buf, 0, 1024);
+	}
 	if (close(from) != 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d", from);
@@ -35,8 +48,7 @@ void close_files(int from, int to)
 int main(int ac, char **av)
 {
 	char buf[1024];
-	int nread = 1024;
-	int f_from, f_to;
+	int f_from, f_to, nread = 1024;
 	struct stat st;
 
 	if (ac != 3)
@@ -56,22 +68,15 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	f_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, st.st_mode & 0664);
+	if (access(av[2], F_OK) == -1)
+		f_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, st.st_mode & 0664);
+	else
+		f_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC);
 	if (f_to < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to  %s", av[2]);
 		exit(99);
 	}
-	while (nread == 1024)
-	{
-		nread = read(f_from, buf, 1024);
-		if (write(f_to, buf, nread) != nread)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to  %s", av[2]);
-			exit(99);
-		}
-		memset(buf, 0, 1024);
-	}
-	close_files(f_from, f_to);
+	close_files(f_from, f_to, nread, buf, av);
 	return (0);
 }
