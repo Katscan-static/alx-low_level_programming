@@ -52,7 +52,7 @@ int main(int ac, char **av)
 	f_to = fopen(av[2], "w");
 	if (!f_from || !f_to)
 	{
-		fprintf(stderr, "Error: Can't write to  %s", av[2]);
+		fprintf(stderr, "Error: Can't write to  %s\n", av[2]);
 		exit(99);
 	}
 	while (nread == 1024)
@@ -60,7 +60,7 @@ int main(int ac, char **av)
 		nread = fread(buf, 1, 1024, f_from);
 		if (fwrite(buf, 1, nread, f_to) != nread)
 		{
-			fprintf(stderr, "Error: Can't write to  %s", av[2]);
+			fprintf(stderr, "Error: Can't write to  %s\n", av[2]);
 			exit(99);
 		}
 		memset(buf, 0, 1024);
