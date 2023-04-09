@@ -76,13 +76,8 @@ int main(int ac, char **av)
 		exit(99);
 	}
 	if (f_exist < 0)
-	{
-		if (chmod(av[2], mode))
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to  %s\n", av[2]);
-			exit(99);
-		}
-	}
+		chmod(av[2], mode);
+
 	close_files(f_from, f_to, nread, buf, av);
 	return (0);
 }
