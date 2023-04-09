@@ -21,7 +21,7 @@ void close_files(int from, int to, int nread, char *buf, char **av)
 		nread = read(from, buf, 1024);
 		if (write(to, buf, nread) != nread)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to  %s\n", av[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			exit(99);
 		}
 		memset(buf, 0, 1024);
