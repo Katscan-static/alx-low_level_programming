@@ -21,19 +21,19 @@ void close_files(int from, int to, int nread, char *buf, char **av)
 		nread = read(from, buf, 1024);
 		if (write(to, buf, nread) != nread)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to  %s", av[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to  %s\n", av[2]);
 			exit(99);
 		}
 		memset(buf, 0, 1024);
 	}
 	if (close(from) != 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from);
 		exit(100);
 	}
 	if (close(to) != 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", to);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", to);
 		exit(100);
 	}
 }
@@ -53,7 +53,7 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp %s %s\n", av[1], av[2]);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	if (access(av[1], F_OK) == -1 || access(av[1], R_OK) == -1)
@@ -72,14 +72,14 @@ int main(int ac, char **av)
 	f_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC);
 	if (f_to < 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to  %s", av[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to  %s\n", av[2]);
 		exit(99);
 	}
 	if (f_exist < 0)
 	{
 		if (chmod(av[2], mode))
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to  %s", av[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to  %s\n", av[2]);
 			exit(99);
 		}
 	}
