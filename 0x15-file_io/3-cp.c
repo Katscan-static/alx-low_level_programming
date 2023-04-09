@@ -29,7 +29,6 @@ void close_files(int from, int to, int nread, char *buf, char **av)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			exit(99);
 		}
-		memset(buf, 0, 1024);
 	}
 	if (close(from) < 0)
 	{
