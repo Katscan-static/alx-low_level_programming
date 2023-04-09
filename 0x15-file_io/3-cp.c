@@ -69,14 +69,12 @@ int main(int ac, char **av)
 	f_from = open(av[1], O_RDONLY);
 	if (f_from < 0)
 	{
-		close(f_from);
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
 	f_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC);
 	if (f_to < 0)
 	{
-		close(f_to);
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
