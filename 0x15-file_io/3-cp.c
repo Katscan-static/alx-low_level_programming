@@ -56,7 +56,7 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	if (access(av[1], F_OK) == -1 || access(av[1], R_OK) == -1)
+	if (access(av[1], F_OK) < 0 || access(av[1], R_OK) < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
@@ -69,7 +69,7 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	f_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC);
+	f_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC | O_CREAT);
 	if (f_to < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to  %s\n", av[2]);
