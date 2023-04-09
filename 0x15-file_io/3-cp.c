@@ -61,7 +61,7 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	if (access(av[1], F_OK) < 0 || access(av[1], R_OK) < 0)
+	if (access(av[1], F_OK) < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
