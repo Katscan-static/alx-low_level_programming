@@ -85,6 +85,11 @@ int main(int ac, char **av)
 	f_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC);
 	if (f_to < 0)
 	{
+		if (close(to) < 0)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", to);
+			exit(100);
+		}
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
