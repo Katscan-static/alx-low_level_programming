@@ -21,6 +21,16 @@ void close_files(int from, int to, int nread, char *buf, char **av)
 		nread = read(from, buf, 1024);
 		if (nread < 0)
 		{
+			if (close(from) < 0)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", from);
+				exit(100);
+			}
+			if (close(to) < 0)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", to);
+				exit(100);
+			}
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 			exit(98);
 		}
