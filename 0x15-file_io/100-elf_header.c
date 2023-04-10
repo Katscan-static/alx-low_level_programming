@@ -46,7 +46,7 @@ void print_header(Elf64_Ehdr *header)
 	printf("  Data:				     %s\n", dt[dt_int]);
 	printf("  Version:			     %s\n", ve[ve_int]);
 	printf("  OS/ABI:			     %s\n", sy[sy_int]);
-	printf("  ABI VERSION:			     %d\n", ve_abi);
+	printf("  ABI Version:			     %d\n", ve_abi);
 	printf("  Type:				     %s\n", tp[tp_int]);
 	if (cl_int == 2)
 		printf("  Entry point address		     0x%lx\n", header->e_entry);
