@@ -83,7 +83,7 @@ int main(int ac, char **av)
 
 	if (read(f_open, &header, sizeof(header)) != sizeof(header))
 	{
-		fprintf(stderr, "Error: failed to read header");
+		fprintf(stderr, "Error: failed to read header\n");
 		exit(98);
 	}
 
