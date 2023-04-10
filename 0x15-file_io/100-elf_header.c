@@ -49,9 +49,9 @@ void print_header(Elf64_Ehdr *header)
 	printf("  ABI Version:			     %d\n", ve_abi);
 	printf("  Type:				     %s\n", tp[tp_int]);
 	if (cl_int == 2)
-		printf("  Entry point address		     0x%lx\n", header->e_entry);
+		printf("  Entry point address:		     0x%lx\n", header->e_entry);
 	if (cl_int == 1)
-		printf("  Entry point address		     0x%x\n", (unsigned int)header->e_entry);
+		printf("  Entry point address:		     0x%x\n", (unsigned int)header->e_entry);
 }
 
 /**
