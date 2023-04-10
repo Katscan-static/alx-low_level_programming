@@ -5,6 +5,7 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#define BUF 1024
 
 /**
  * close_files - closes files and handles error
@@ -16,9 +17,9 @@
  */
 void close_files(int from, int to, int nread, char *buf, char **av)
 {
-	while (nread == 1024)
+	while (nread == BUF)
 	{
-		nread = read(from, buf, 1024);
+		nread = read(from, buf, BUF);
 		if (nread < 0)
 		{
 			if (close(from) < 0)
@@ -61,8 +62,8 @@ void close_files(int from, int to, int nread, char *buf, char **av)
  */
 int main(int ac, char **av)
 {
-	char buf[1024];
-	int f_from, f_to, nread = 1024, f_exist;
+	char buf[BUF];
+	int f_from, f_to, nread = BUF, f_exist;
 	mode_t mode = S_IWUSR | S_IRUSR | S_IWGRP | S_IRGRP | S_IWOTH;
 
 	if (ac != 3)
