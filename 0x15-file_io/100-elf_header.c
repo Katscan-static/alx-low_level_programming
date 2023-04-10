@@ -33,11 +33,11 @@ void print_header(Elf64_Ehdr *header)
 	ve_int = header->e_ident[EI_VERSION];
 	ve_abi = header->e_ident[EI_ABIVERSION];
 	tp_int = header->e_type;
-	printf("ELF Header:\n  Magic:   ");
+	printf("ELF Header:\n  Magic:");
 	for (; i < EI_NIDENT; i++)
 	{
 		if (i == 0)
-			printf("%02x", header->e_ident[i]);
+			printf("   %02x", header->e_ident[i]);
 		else
 			printf(" %02x", header->e_ident[i]);
 	}
