@@ -15,7 +15,7 @@ void print_header(Elf64_Ehdr *header)
 	const char *cl[] = {"NONE", "ELF32", "ELF64"};
 	const char *dt[] = {"NONE", "2's complement, little endian",
 				"2's complement, big endian"};
-	const char *sy[] = {"UNIX - System V","UNIX - System V", "UNIX - HP-UX",
+	const char *sy[] = {"UNIX - System V", "UNIX - System V", "UNIX - HP-UX",
 				"UNIX - NetBSD", "UNIX - GNU", "UNIX - Solaris",
 				"UNIX - IRIX", "UNIX - FreeBSD",
 				"UNIX - TRU64", "ARM",
@@ -45,7 +45,7 @@ void print_header(Elf64_Ehdr *header)
 	printf("  Class:			     %s\n", cl[cl_int]);
 	printf("  Data:				     %s\n", dt[dt_int]);
 	printf("  Version:			     %s\n", ve[ve_int]);
-	printf("  OS/ABI:			     %s\n",sy[sy_int - 1]);
+	printf("  OS/ABI:			     %s\n", sy[sy_int]);
 	printf("  ABI Version:			     %d\n", ve_abi);
 	printf("  Type:				     %s\n", tp[tp_int]);
 	if (cl_int == 2)
