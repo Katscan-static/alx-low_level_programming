@@ -15,7 +15,7 @@ void print_header(Elf64_Ehdr *header)
 	const char *cl[] = {"NONE", "ELF32", "ELF64"};
 	const char *dt[] = {"NONE", "2's complement, little endian",
 				"2's complement, big endian"};
-	const char *sy[] = {"<unknown: 53>", "UNIX - System V", "UNIX - HP-UX",
+	const char *sy[] = {"UNIX - System V", "UNIX - HP-UX",
 				"UNIX - NetBSD", "UNIX - GNU", "UNIX - Solaris",
 				"UNIX - IRIX", "UNIX - FreeBSD",
 				"UNIX - TRU64", "ARM",
