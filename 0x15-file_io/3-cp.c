@@ -64,7 +64,7 @@ int main(int ac, char **av)
 {
 	char buf[BUF];
 	int f_from, f_to, nread = BUF, f_exist;
-	mode_t mode = S_IWUSR | S_IRUSR | S_IWGRP | S_IRGRP | S_IWOTH;
+	mode_t mode = S_IWUSR | S_IRUSR | S_IWGRP | S_IRGRP | S_IROTH;
 
 	if (ac != 3)
 	{
