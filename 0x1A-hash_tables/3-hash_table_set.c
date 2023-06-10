@@ -37,17 +37,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	strcpy(new_node->key, key);
 	strcpy(new_node->value, value);
 
-	index = key_index((const unsigned char *) key, ht->size);
+	ix = key_index((const unsigned char *) key, ht->size);
 
 	if (!ht->array[ix])
 		ht->array[ix] = new_node;
 	else if (!(strcmp(ht->array[ix]->key, key))
 			&& ht->array[ix]->value != value)
-		ht->array[index]->value = (char *) value;
+		ht->array[ix]->value = (char *) value;
 	else
 	{
-		new_node->next = ht->array[index];
-		ht->array[index] = new_node;
+		new_node->next = ht->array[ix];
+		ht->array[ix] = new_node;
 	}
 
 	return (1);
