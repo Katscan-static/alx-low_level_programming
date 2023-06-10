@@ -11,43 +11,41 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-        unsigned long int index;
-        hash_node_t *new_node, *current_node;
+	unsigned long int idx;
+	hash_node_t *new_node;
 
-        if (!ht || !key || !value || strcmp(key, "") == 0)
-                return (0);
+	if (!value || !ht || !key || !value || !(strcmp(key, "")))
+		return (0);
+	new_node = malloc(sizeof(hash_node_t));
+	if (!new_node)
+		return (0);
+	new_node->key = malloc(sizeof(char) * strlen(key) + 1);
+	if (!new_node->key)
+	{
+		free(new_node);
+		return (0);
+	}
+	new_node->value = malloc(sizeof(char) * strlen(value) + 1);
+	if (new_node->value)
+	{
+		free(new_node->key);
+		free(new_node);
+		return (0);
+	}
 
-        index = key_index((const unsigned char *)key, ht->size);
+	strcpy(new_node->key, key);
+	strcpy(new_node->value, value);
+	idx = key_index((const unsigned char *) key, ht->size);
 
-        current_node = ht->array[index];
-        while (current_node != NULL)
-        {
-                if (strcmp(current_node->key, key) == 0)
-                {
-                        free(current_node->value);
-                        current_node->value = strdup(value);
-                        if (!current_node->value)
-                                return (0);
-                        return (1);
-                }
-                current_node = current_node->next;
-        }
+	if (!ht->array[idx])
+		ht->array[idx] = new_node;
+	else if (!(strcmp(ht->array[idx]->key, key)))
+		ht->array[idx]->value = (char *) value;
+	else
+	{
+		new_node->next = ht->array[idx];
+		ht->array[idx] = new_node;
+	}
 
-        new_node = malloc(sizeof(hash_node_t));
-        if (!new_node)
-                return (0);
-        new_node->key = strdup(key);
-        new_node->value = strdup(value);
-        if (!new_node->key || !new_node->value)
-        {
-                free(new_node->key);
-                free(new_node->value);
-                free(new_node);
-                return (0);
-        }
-
-        new_node->next = ht->array[index];
-        ht->array[index] = new_node;
-
-        return (1);
+	return (1);
 }
